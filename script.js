@@ -395,3 +395,15 @@ console.log(hobbies)
   divsWithClassArray.forEach((div) => (div.style.color = "green"))
   divsWithClass[1].style.color = "blue"
 }
+
+// Query Selectors
+{
+  const dataAttributeElement = document.querySelector("[data-test]")
+  const divsWithClasses = document.querySelectorAll(".div-class")
+  const input = document.querySelector("input")
+
+  divsWithClasses[3].style.color = "purple"
+
+  console.log(dataAttributeElement)
+  console.log(input)
+}
