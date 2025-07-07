@@ -318,4 +318,18 @@ console.log(hobbies)
   console.log(total)
 }
 
-// This is a github test
+// Template Literals - Uses backticks and curley brackets to create strings
+{
+  let a = "Hello"
+  let b = "World"
+
+  console.log(a + " " + b)
+  console.log(`${a} ${b}`)
+}
+
+// Create two variables, one for your first name, and one for your last name and combine them together with backticks
+{
+  let a = "Jaret"
+  let b = "Peerson"
+  console.log(`${a} ${b}`)
+}
