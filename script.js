@@ -333,3 +333,43 @@ console.log(hobbies)
   let b = "Peerson"
   console.log(`${a} ${b}`)
 }
+
+// New, Constructors, and This
+{
+  // Function
+  function createUser(name, age) {
+    return { name: name, age: age }
+  }
+  const userFunc = createUser("Jaret", 30)
+  console.log(userFunc)
+
+  // Constructor
+  function User(name, age) {
+    this.name = name
+    this.age = age
+    this.human = true
+  }
+  const user = new User("Sally", 25)
+  console.log(user)
+}
+
+{
+  // Date functions example
+  const date = new Date()
+  console.log(date.getFullYear())
+}
+
+// logging.js example
+{
+  const startTime = new Date()
+
+  logWithTime("Start HTML Parse")
+
+  window.addEventListener("load", () => {
+    logWithTime("Document Rendered")
+  })
+
+  function logWithTime(message) {
+    console.log(new Date() - startTime + "ms - " + message)
+  }
+}
