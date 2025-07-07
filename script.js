@@ -374,9 +374,24 @@ console.log(hobbies)
   }
 }
 
-// Use 'Document' to Add to HTML: Example
+// Use 'Document' object to add to HTML (Example)
 {
   const element = document.createElement("span")
   element.innerText = "Level Up"
   document.body.appendChild(element)
+}
+
+// Call elements using the Document object
+{
+  // Id's
+  const divWithId = document.getElementById("div-id")
+  divWithId.style.color = "red"
+
+  // Classes
+  const divsWithClass = document.getElementsByClassName("div-class")
+
+  const divsWithClassArray = Array.from(divsWithClass) // Converting divsWithClass to Array
+
+  divsWithClassArray.forEach((div) => (div.style.color = "green"))
+  divsWithClass[1].style.color = "blue"
 }
