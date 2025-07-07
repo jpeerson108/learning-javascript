@@ -373,3 +373,10 @@ console.log(hobbies)
     console.log(new Date() - startTime + "ms - " + message)
   }
 }
+
+// Use 'Document' to Add to HTML: Example
+{
+  const element = document.createElement("span")
+  element.innerText = "Level Up"
+  document.body.appendChild(element)
+}
