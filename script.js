@@ -402,7 +402,7 @@ console.log(hobbies)
   const divsWithClasses = document.querySelectorAll(".div-class")
   const input = document.querySelector("input")
 
-  divsWithClasses[3].style.color = "purple"
+  //  divsWithClasses[3].style.color = "purple"
 
   console.log(dataAttributeElement)
   console.log(input)
@@ -469,4 +469,15 @@ console.log(hobbies)
       button.dataset.clicks = currentClicks + 1
     })
   })
+}
+
+// DOM Traversal - Selecting specific (child) elements
+{
+  const grandParent = document.querySelector("#grand-parent")
+
+  const parentOne = grandParent.children[0]
+  const parentTwo = parentOne.nextElementSibling
+
+  parentOne.style.color = "red"
+  parentTwo.style.color = "yellow"
 }

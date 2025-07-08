@@ -4,13 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        div {
+            color: black;
+        }
+        div > div {
+            margin-left: .5rem;
+            padding-left: .25rem;
+            border-left: 1px solid #777;
+        }
+    </style>
     <script defer src="script.js"></script>
 </head>
 <body>
     <div id="div-id">This is an ID elemennt</div>
-    <div class="div-class">This is a class element</div>
-    <div class="div-class">This is a class element</div>
-    <div class="div-class">This is a class element</div>
+    <div id="grand-parent">
+        Parent 1
+        <div>Child 1</div>
+        <div>Child 2</div>
+    </div>
+    <div class="div-class">Parent 2</div>
+    <div class="div-class">Parent 3</div>
     <div data-test>This has a data attribute</div>
     <div class="div-class">This has a class</div>
     <input type="text" />
