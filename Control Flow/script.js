@@ -64,3 +64,90 @@
     console.log("large")
   }
 }
+
+// If Statement on one single line - Not use often
+{
+  const isUserLoggedIn = true
+  if (isUserLoggedIn) console.log("User is logged in")
+}
+
+// Ternary Operator
+{
+  const isUserLoggedIn = true
+
+  // Regular if statement
+  if (isUserLoggedIn) {
+    console.log("logged in")
+  } else {
+    console.log("not logged in")
+  }
+
+  // Same as above
+  isUserLoggedIn ? console.log("logged in") : console.log("not logged in")
+}
+
+// Set a welcome message based on a true/false value
+{
+  const isUserLoggedIn = true
+
+  //   let welcomeMessage = ""
+
+  //   if (isUserLoggedIn) {
+  //     welcomeMessage = "Welcome"
+  //   } else {
+  //     welcomeMessage = "Please log in"
+  //   }
+
+  const welcomeMessage = isUserLoggedIn ? "Welcome" : "Please log in"
+
+  console.log(welcomeMessage)
+}
+
+// Switch Statements
+{
+  const favoriteAnimal = "cat"
+
+  switch (favoriteAnimal) {
+    case "bobcat":
+    case "cat":
+      console.log("cats are pretty cool")
+      break
+    case "dog":
+      console.log("they are kinda loud")
+      break
+    case "shark":
+      console.log("that is an interesting choice")
+      break
+    default:
+      console.log("That is cool but idk")
+  }
+}
+
+// Create a switch that checks to see the value of the number variable
+// If the number is 0, print out "it is zero"
+// If the number is 1 or 2, print out "it is small"
+// If the number is 3 or 4, print out "it is medium"
+// If the number is 5, print out "it is large"
+// If the number is none of these, print out "try again"
+{
+  const number = 4
+
+  switch (number) {
+    case 0:
+      console.log("it is zero")
+      break
+    case 1:
+    case 2:
+      console.log("it is small")
+      break
+    case 3:
+    case 4:
+      console.log("it is medium")
+      break
+    case 5:
+      console.log("it is large")
+      break
+    default:
+      console.log("try again")
+  }
+}
