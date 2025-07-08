@@ -407,3 +407,53 @@ console.log(hobbies)
   console.log(dataAttributeElement)
   console.log(input)
 }
+
+// Event Listeners on Button - Print "Clicked"
+{
+  const btn = document.querySelector("[data-btn")
+
+  function printClick() {
+    console.log("clicked")
+  }
+
+  btn.addEventListener("click", printClick)
+
+  btn.addEventListener("click", (e) => {
+    console.log(e)
+  })
+}
+
+// Event Listeners on Button - Check Input Validity
+{
+  const input = document.querySelector("[data-input-text")
+
+  input.addEventListener("change", () => {
+    console.log("changed")
+    // This fires when you type in the input then click out of the dialogue box
+  })
+
+  // Check to see if the value is empty
+  input.addEventListener("input", (e) => {
+    console.log(e.target.value === "")
+  })
+}
+
+// Event Listeners - Form
+{
+  const form = document.querySelector("[data-form")
+
+  form.addEventListener("submit", (e) => {
+    e.preventDefault()
+    console.log("submitted form")
+  })
+}
+
+// Add an achor tag to the HTML and when it is clicked, prevent the default and log something to the console
+{
+  const printSuccess = document.querySelector("[redirect]")
+
+  printSuccess.addEventListener("click", (e) => {
+    e.preventDefault()
+    console.log("success")
+  })
+}
