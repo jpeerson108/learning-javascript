@@ -151,3 +151,19 @@
       console.log("try again")
   }
 }
+
+// For Loop
+{
+  for (let i = 0; i < 5; i++) {
+    console.log("hi")
+  }
+}
+
+// Create a for loop that loops from 0 to 10 and prints out all values from 0 to 10
+// Modify this loop and exit the loop when the value is equal to 5 while using break
+{
+  for (let i = 0; i <= 10; i++) {
+    if (i === 5) break
+    console.log(i)
+  }
+}
