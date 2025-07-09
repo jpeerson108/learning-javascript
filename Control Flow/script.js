@@ -199,3 +199,83 @@
     currentPerson = currentPerson.friend
   }
 }
+
+// Recursion
+// Here, printNumber is calling itself and running repeatedly until the if statement becomes true. When the number + 1 reaches > 10, the loop exits from return.
+// If there is no break, return, or stop criteria, a recursive function will likely enter into an infinite loop and stack overflow.
+
+{
+  function printNumber(number) {
+    if (number > 10) return
+
+    console.log(number)
+    printNumber(number + 1)
+  }
+
+  printNumber(1)
+}
+
+console.log("breakpoint 1")
+
+// Recursion
+// Sum of the numbers between 1 and 10
+{
+  // for function
+  let sum = 0
+  for (let i = 1; i <= 10; i++) {
+    sum = sum + i
+  }
+  console.log(sum)
+
+  // recursive function - does same as above
+  function sumNumbersBelow(number) {
+    if (number <= 0) return 0
+    return number + sumNumbersBelow(number - 1)
+  }
+  console.log(sumNumbersBelow(10))
+}
+
+// Recursion Practice
+{
+  const person = {
+    name: "Jaret",
+    friend: {
+      name: "Joe",
+      friend: {
+        name: "Robert",
+      },
+    },
+  }
+
+  let currentPerson = person
+  while (currentPerson != null) {
+    console.log(currentPerson.name)
+    currentPerson = currentPerson.friend
+  }
+}
+// Convert above to recursive function
+console.log("breakpoint 2")
+{
+  const person = {
+    name: "Jaret",
+    friend: {
+      name: "Joe",
+      friend: {
+        name: "Robert",
+      },
+    },
+  }
+
+  function printNames(currentPerson) {
+    if (currentPerson == null) return
+    console.log(currentPerson.name)
+    printNames(currentPerson.friend)
+  }
+
+  printNames(person)
+
+  //   {
+  //     if (person.friend == null) return
+  //     return person + currentPerson(person - 1)
+  //   }
+}
