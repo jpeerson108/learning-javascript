@@ -235,7 +235,7 @@ console.log("breakpoint 1")
   console.log(sumNumbersBelow(10))
 }
 
-// Recursion Practice
+// Recursion Practice #1 -----------------
 {
   const person = {
     name: "Jaret",
@@ -274,8 +274,30 @@ console.log("breakpoint 2")
 
   printNames(person)
 
-  //   {
-  //     if (person.friend == null) return
-  //     return person + currentPerson(person - 1)
-  //   }
+  // This code creates a nested object where each person has a name and a friend. It defines a function called printNames that prints the current person's name and then calls itself with that person's friend. This repeats until there are no more friends. When you run printNames(person), it prints "Jaret", then "Joe", then "Robert", and stops when it reaches the end of the chain.
+}
+
+// Recursion Practice #2 -----------------
+{
+  function countDown(n) {
+    for (let i = n; i > 0; i--) {
+      console.log(i)
+    }
+    console.log("Hooray")
+  }
+  // for loop Explanation
+  //   Start i at the number passed into the function (n)
+  //   Keep looping while i is greater than 0
+  //   Subtract 1 from i each time (counting down)
+
+  // Recursive Version
+
+  function countDownRecursive(n) {
+    if (n <= 0) {
+      console.log("Hooray")
+      return
+    }
+    console.log(n)
+    countDownRecursive(n - 1)
+  }
 }
