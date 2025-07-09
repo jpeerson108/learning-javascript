@@ -167,3 +167,35 @@
     console.log(i)
   }
 }
+
+// While Loop
+{
+  // for (let i = 0; i < 5; i++)
+  //     console.log(i)
+
+  let i = 0
+  while (i < 5) {
+    console.log(i)
+    i++
+  }
+  // This gives the same result as the for loop above
+}
+
+// While Loop for Deep Nested Objects
+{
+  const person = {
+    name: "Jaret",
+    friend: {
+      namee: "John",
+      friend: {
+        name: "Robert",
+      },
+    },
+  }
+
+  let currentPerson = person
+  while (currentPerson.friend != null) {
+    console.log(currentPerson.name)
+    currentPerson = currentPerson.friend
+  }
+}
