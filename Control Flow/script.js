@@ -301,3 +301,26 @@ console.log("breakpoint 2")
     countDownRecursive(n - 1)
   }
 }
+
+// Short Circuit Evaluation
+{
+  true || true
+  // since the first condition is true, js ignores the remaining code since true or true passes on the first condition.
+
+  function printName(name) {
+    console.log(name || "Default")
+  }
+
+  printName()
+
+  // Above will print "Default" because the printName() passes nothing, which is null (or false). The || or statement then chooses "Default" since it is technically true.
+
+  const person = {
+    address: {
+      street: "Main St",
+    },
+  }
+
+  console.log(person && person.address && person.address.street)
+  // Will check T/F left to right
+}
