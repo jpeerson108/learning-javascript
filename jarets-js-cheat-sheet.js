@@ -4,8 +4,8 @@
 
 // 🔹 VARIABLES
 
-let name = "Jaret" // You can change this later
-const age = 30 // You CANNOT reassign this
+let name = "Jaret" // Can be reassigned
+const age = 30 // Cannot be reassigned
 
 // 🔹 DATA TYPES
 
@@ -14,8 +14,8 @@ let num = 42 // Number
 let bool = true // Boolean
 let arr = [1, 2, 3] // Array
 let obj = { key: "val" } // Object
-let nothing = null // Null (explicitly nothing)
-let notDefined // undefined (not assigned)
+let nothing = null // Explicitly nothing
+let notDefined // undefined (unassigned)
 
 // 🔹 CONSOLE
 
@@ -33,9 +33,9 @@ if (age > 18) {
 }
 
 // Comparison Operators
-// === equal + same type
+// === equal & same type
 // !== not equal
-// >, <, >=, <= are standard math comparisons
+// >, <, >=, <=
 
 // For loop
 for (let i = 0; i < 5; i++) {
@@ -53,7 +53,7 @@ while (i < 5) {
 // 🔄 FUNCTIONS
 // ===========================================
 
-// Function declaration
+// Function
 function greet(name) {
   return "Hello " + name
 }
@@ -85,10 +85,38 @@ fruits.forEach((fruit) => {
   console.log(fruit)
 })
 
-// Other useful methods
+// Includes
 console.log(fruits.includes("banana")) // true
 console.log(fruits.indexOf("cherry")) // 2
+// indexOf = tells you where a value is inside an array
+
+// Join
 console.log(fruits.join(", ")) // "apple, banana, cherry"
+// join = combines data into a single string
+
+// ===========================================
+// 🔎 ADVANCED ARRAY METHODS
+// ===========================================
+
+let numbers = [1, 2, 3, 4, 5]
+
+// map = transforms each item and returns a new array
+let doubled = numbers.map((n) => n * 2) // [2, 4, 6, 8, 10]
+
+// filter = keeps items that match a condition
+let evens = numbers.filter((n) => n % 2 === 0) // [2, 4]
+
+// find = returns the first match (or undefined)
+let found = numbers.find((n) => n > 3) // 4
+
+// reduce = combines all items into a single value
+let total = numbers.reduce((sum, n) => sum + n, 0) // 15
+
+// some = checks if at least one item matches
+let hasEven = numbers.some((n) => n % 2 === 0) // true
+
+// every = checks if all items match
+let allPositive = numbers.every((n) => n > 0) // true
 
 // ===========================================
 // 🧱 OBJECTS
@@ -113,6 +141,7 @@ person.greet() // "Hi!"
 
 // Selecting elements
 document.getElementById("title") // By ID (no # needed)
+document.getElementsByClassName("item") // All elements with class "item"
 document.querySelector(".box") // First element with class "box"
 document.querySelectorAll(".item") // All elements with class "item"
 
