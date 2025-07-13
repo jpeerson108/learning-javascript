@@ -175,7 +175,8 @@ title.classList.toggle("active") // Toggle class on/off
 
 // Events
 const button = document.querySelector("button")
-button.addEventListener("click", () => {
+button.addEventListener("click", (e) => {
+  e.preventDefault() // Prevent default form submission or behavior
   alert("Button clicked!")
 })
 
@@ -204,3 +205,94 @@ console.log(status)
 let input = null
 let output = input ?? "Guest"
 console.log(output) // "Guest"
+
+// ===========================================
+// 🧠 TYPE COERCION & COMPARISON
+// ===========================================
+
+// == checks value only (allows type conversion)
+console.log("5" == 5) // true
+
+// === checks value AND type (strict)
+console.log("5" === 5) // false
+
+// Useful when comparing strings, numbers, booleans, etc.
+
+// ===========================================
+// 🚫 NaN — Not a Number
+// ===========================================
+
+console.log(NaN === NaN) // false (NaN is never equal to itself)
+console.log(Number("hello")) // NaN ("hello" can't be converted to a number)
+console.log(isNaN("hello")) // true
+
+// ===========================================
+// 🔁 RECURSION
+// ===========================================
+
+// A function that calls itself
+function countDown(n) {
+  if (n <= 0) return
+  console.log(n)
+  countDown(n - 1)
+}
+
+countDown(3) // 3, 2, 1
+
+// ===========================================
+// 🔒 CLOSURES
+// ===========================================
+
+// A function "remembers" variables from where it was created
+function outer() {
+  let count = 0
+  return function inner() {
+    count++
+    console.log(count)
+  }
+}
+
+const counter = outer()
+counter() // 1
+counter() // 2
+
+// ===========================================
+// 📎 REFERENCE VS VALUE
+// ===========================================
+
+// Primitive types (number, string, boolean) are copied by value
+let a = 5
+let b = a
+b++
+console.log(a) // 5 (original not affected)
+
+// Objects are copied by reference
+let obj1 = { value: 10 }
+let obj2 = obj1
+obj2.value++
+console.log(obj1.value) // 11 (both changed)
+
+// ===========================================
+// 🆕 NEW & THIS KEYWORD
+// ===========================================
+
+function Person(name) {
+  this.name = name
+}
+
+const user2 = new Person("Jaret")
+console.log(user2.name) // "Jaret"
+
+// ===========================================
+// 🧭 DOM TRAVERSAL & DATA ATTRIBUTES
+// ===========================================
+
+// DATA ATTRIBUTES
+// <button data-id="123">Click me</button>
+const btn2 = document.querySelector("button")
+console.log(btn2.dataset.id) // "123"
+
+// DOM TRAVERSAL
+const item = document.querySelector(".item")
+console.log(item.parentElement) // Access parent element
+console.log(item.children) // Get all child elements
