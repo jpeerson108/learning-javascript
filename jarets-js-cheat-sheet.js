@@ -28,19 +28,19 @@ console.log("Hello") // Prints to the console
 // ===========================================
 
 if (age > 18) {
-  console.log("Adult") // If true
+  console.log("Adult") // If condition is true
 } else {
-  console.log("Minor") // Else
+  console.log("Minor") // Else case
 }
 
-// Comparison: === (equal & same type), !== (not equal), >, <, >=, <=
+// Comparison operators: ===, !==, >, <, >=, <=
 
-// Ternary Operator
+// Ternary operator
 let status = age > 18 ? "Adult" : "Minor" // One-line if/else
 
-// Nullish Coalescing
+// Nullish coalescing
 let input = null
-let output = input ?? "Guest" // "Guest" (if input is null/undefined)
+let output = input ?? "Guest" // "Guest" (fallback if null or undefined)
 
 // ===========================================
 // 🔄 FUNCTIONS
@@ -82,12 +82,12 @@ fruits.forEach((fruit) => {
 
 let numbers = [1, 2, 3, 4, 5]
 
-numbers.map((n) => n * 2) // [2, 4, 6, 8, 10] (transform)
-numbers.filter((n) => n % 2 === 0) // [2, 4] (keep even numbers)
-numbers.find((n) => n > 3) // 4 (first match)
-numbers.reduce((sum, n) => sum + n, 0) // 15 (sum all values)
-numbers.some((n) => n % 2 === 0) // true (any match)
-numbers.every((n) => n > 0) // true (all match)
+numbers.map((n) => n * 2) // [2, 4, 6, 8, 10]
+numbers.filter((n) => n % 2 === 0) // [2, 4]
+numbers.find((n) => n > 3) // 4
+numbers.reduce((sum, n) => sum + n, 0) // 15
+numbers.some((n) => n % 2 === 0) // true
+numbers.every((n) => n > 0) // true
 
 // ===========================================
 // 🧱 OBJECTS & DOT NOTATION
@@ -105,7 +105,7 @@ person.name // "Jaret"
 person["age"] // 30
 person.greet() // "Hi!"
 
-// Dot Notation examples
+// Dot notation examples
 obj.name // Access property
 obj.greet() // Call method
 user.address.city // Nested property
@@ -116,19 +116,19 @@ Math.round(4.7) // 5
 // 🎯 DOM BASICS
 // ===========================================
 
-// SELECTORS
+// SELECTING ELEMENTS
 document.getElementById("title") // By ID
-document.getElementsByClassName("item") // By class (HTMLCollection)
+document.getElementsByClassName("item") // All with class
 document.querySelector(".box") // First match
-document.querySelectorAll(".item") // All matches (NodeList)
+document.querySelectorAll(".item") // All matches
 
-// CONTENT
+// CHANGING CONTENT
 const title = document.querySelector(".title")
 title.textContent = "Hello" // Set plain text
-title.innerHTML = "<strong>Hi</strong>" // Set HTML
+title.innerHTML = "<strong>Hi</strong>" // Set HTML content
 
-// STYLING
-title.style.color = "red" // Inline style
+// CHANGING STYLES
+title.style.color = "red" // Set inline style
 title.classList.add("active") // Add class
 title.classList.remove("active") // Remove class
 title.classList.toggle("active") // Toggle class
@@ -136,43 +136,43 @@ title.classList.toggle("active") // Toggle class
 // EVENTS
 const button = document.querySelector("button")
 button.addEventListener("click", (e) => {
-  e.preventDefault() // Prevent default behavior
+  e.preventDefault() // Stop default action
   alert("Button clicked!") // Show alert
 })
 
-// LOOPING OVER ELEMENTS
+// LOOPING OVER DOM ELEMENTS
 let items = document.querySelectorAll(".item")
-items.forEach((item) => (item.style.color = "blue")) // Color all blue
+items.forEach((item) => (item.style.color = "blue")) // Color all
 
 // ===========================================
 // 🧾 FORM INPUTS & .value
 // ===========================================
 
 const inputEl = document.getElementById("username")
-inputEl.value // Get current input text
-inputEl.value.trim() // Trim spaces
+inputEl.value // Get current text
+inputEl.value.trim() // Remove spaces before/after
 
 const select = document.getElementById("priority")
-select.value // Get selected option
+select.value // Get selected value
 
-// ❌ Not valid on <div>, <p>, etc.
+// Not valid on non-form elements like <div>, <p>, etc.
 const heading = document.getElementById("title")
-// heading.value ❌ — use textContent instead
-
-// .textContent vs .innerHTML
-heading.textContent = "Welcome!" // Sets plain text
-heading.innerHTML = "<strong>Hello</strong>" // Sets bold HTML
+// heading.value ❌ — use textContent or innerHTML instead
 
 // ===========================================
-// 🧭 DOM TRAVERSAL & DATA ATTRIBUTES
+// 🧭 DOM TRAVERSAL, CREATION & DATA ATTRIBUTES
 // ===========================================
 
 const btn2 = document.querySelector("button")
 btn2.dataset.id // Access data-id → "123"
 
 const item = document.querySelector(".item")
-item.parentElement // Get parent
-item.children // Get children
+item.parentElement // Get parent element
+item.children // Get child elements
+
+const newDiv = document.createElement("div") // Create new div
+newDiv.textContent = "Hi there" // Add content
+document.body.appendChild(newDiv) // Add to page (or list)
 
 // ===========================================
 // 🔂 LOOPS
@@ -195,12 +195,11 @@ while (i < 5) {
 let user = "Jaret"
 console.log(`Hello, ${user}`) // Template literal
 
-console.log("5" == 5) // true (loose comparison)
+console.log("5" == 5) // true (loose)
 console.log("5" === 5) // false (strict)
 
-// NaN
-console.log(NaN === NaN) // false (NaN is never equal to itself)
-console.log(Number("hello")) // NaN (invalid conversion)
+console.log(NaN === NaN) // false
+console.log(Number("hello")) // NaN
 console.log(isNaN("hello")) // true
 
 // ===========================================
@@ -209,7 +208,7 @@ console.log(isNaN("hello")) // true
 
 function countDown(n) {
   if (n <= 0) return // Base case
-  console.log(n) // Log current number
+  console.log(n)
   countDown(n - 1) // Recursive call
 }
 
@@ -235,13 +234,13 @@ counter() // 2
 // 📎 VALUE VS REFERENCE
 // ===========================================
 
-// PRIMITIVES
+// PRIMITIVE TYPES
 let a = 5
 let b = a
 b++
 console.log(a) // 5 (unchanged)
 
-// OBJECTS
+// REFERENCE TYPES
 let obj1 = { value: 10 }
 let obj2 = obj1
 obj2.value++
@@ -252,7 +251,7 @@ console.log(obj1.value) // 11 (both changed)
 // ===========================================
 
 function Person(name) {
-  this.name = name // Set property
+  this.name = name // Set name on new object
 }
 
 const user2 = new Person("Jaret")
