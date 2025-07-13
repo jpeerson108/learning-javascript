@@ -2,12 +2,12 @@
 // Jaret's JS Cheat Sheet
 // ===========================================
 
-// 🔹 VARIABLES
+// 🏷️ VARIABLES
 
 let name = "Jaret" // Can be reassigned
 const age = 30 // Cannot be reassigned
 
-// 🔹 DATA TYPES
+// 🧬 DATA TYPES
 
 let str = "Hello" // String
 let num = 42 // Number
@@ -17,7 +17,7 @@ let obj = { key: "val" } // Object
 let nothing = null // Explicitly nothing
 let notDefined // undefined (unassigned)
 
-// 🔹 CONSOLE
+// 🖨️ CONSOLE
 
 console.log("Hello") // Print to console
 
@@ -65,7 +65,7 @@ console.log(greet("Jaret")) // "Hello Jaret"
 console.log(greet2("Joe")) // "Hello Joe"
 
 // ===========================================
-// 📦 ARRAYS
+// 📚 ARRAYS
 // ===========================================
 
 let fruits = ["apple", "banana", "cherry"]
@@ -92,6 +92,10 @@ console.log(fruits.indexOf("cherry")) // 2
 
 // Join
 console.log(fruits.join(", ")) // "apple, banana, cherry"
+console.log(fruits.join(", ")) // "apple, banana, cherry"
+console.log(fruits.join(" - ")) // "apple - banana - cherry"
+console.log(fruits.join("")) // "applebananacherry"
+console.log(fruits.join("\n")) // puts each fruit on a new line
 // join = combines data into a single string
 
 // ===========================================
@@ -136,6 +140,19 @@ console.log(person["age"]) // 30
 person.greet() // "Hi!"
 
 // ===========================================
+// 📍 DOT NOTATIONS
+// ===========================================
+
+obj.name // → gets the value (property)
+obj.greet() // → runs the function (method)
+user.address.city // → accesses a deeper nested property
+console.log() // → calls a method on a built-in object
+Math.round(4.7) // → rounds a number using a built-in method
+person.age = 30 // → sets a new value on a property
+obj["full name"] // → accesses a property with spaces or special characters
+"hi".toUpperCase() // → runs a method on a string value
+
+// ===========================================
 // 🎯 DOM (Document Object Model)
 // ===========================================
 
@@ -163,7 +180,7 @@ button.addEventListener("click", () => {
 })
 
 // ===========================================
-// 🔄 LOOPING OVER DOM ELEMENTS
+// 🔂 LOOPING OVER DOM ELEMENTS
 // ===========================================
 
 let items = document.querySelectorAll(".item")
@@ -172,7 +189,7 @@ items.forEach((item) => {
 })
 
 // ===========================================
-// 🧪 MISC TOOLS
+// 🧰 MISC TOOLS
 // ===========================================
 
 // Template Literals
