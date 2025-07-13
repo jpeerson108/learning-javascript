@@ -1,0 +1,58 @@
+body {
+  font-family: sans-serif;
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+}
+
+form {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+#task-input {
+  flex: 2;
+  padding: 0.5rem;
+}
+
+#priority-select {
+  flex: 1;
+  padding: 0.5rem;
+}
+
+button {
+  padding: 0.5rem 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.low {
+  background-color: green;
+}
+
+.medium {
+  background-color: orange;
+}
+
+.high {
+  background-color: red;
+}
+
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}

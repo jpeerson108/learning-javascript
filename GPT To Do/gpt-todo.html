@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>To-Do List with Priorities</title>
+  <link rel="stylesheet" href="gpt-todo.css">
+  <script src="gpt-todo.js" defer></script>
+</head>
+<body>
+  <h1>To-Do List</h1>
+
+  <form id="todo-form">
+    <input type="text" id="task-input" placeholder="Enter a task" required>
+    <select id="priority-select">
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+    <button type="submit">Add Task</button>
+  </form>
+
+  <ul id="task-list"></ul>
+</body>
+</html>

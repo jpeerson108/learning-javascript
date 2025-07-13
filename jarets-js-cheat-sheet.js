@@ -1,65 +1,58 @@
+// prettier-ignore
+
 // ===========================================
-// Jaret's JS Cheat Sheet
+// 🧠 JARET'S JAVASCRIPT CHEAT SHEET
 // ===========================================
 
-// 🏷️ VARIABLES
+// ===========================================
+// 🏷️ VARIABLES & DATA TYPES
+// ===========================================
 
-let name = "Jaret" // Can be reassigned
-const age = 30 // Cannot be reassigned
-
-// 🧬 DATA TYPES
+let name = "Jaret" // Reassignable variable
+const age = 30 // Constant (can't reassign)
 
 let str = "Hello" // String
 let num = 42 // Number
 let bool = true // Boolean
 let arr = [1, 2, 3] // Array
 let obj = { key: "val" } // Object
-let nothing = null // Explicitly nothing
-let notDefined // undefined (unassigned)
-
-// 🖨️ CONSOLE
-
-console.log("Hello") // Print to console
+let nothing = null // Explicitly "nothing"
+let notDefined // undefined (not assigned)
 
 // ===========================================
-// 🔁 CONTROL FLOW
+// 🖨️ CONSOLE & LOGGING
 // ===========================================
 
-// If / Else
+console.log("Hello") // Prints to the console
+
+// ===========================================
+// 🔁 CONTROL FLOW & OPERATORS
+// ===========================================
+
 if (age > 18) {
-  console.log("Adult")
+  console.log("Adult") // If true
 } else {
-  console.log("Minor")
+  console.log("Minor") // Else
 }
 
-// Comparison Operators
-// === equal & same type
-// !== not equal
-// >, <, >=, <=
+// Comparison: === (equal & same type), !== (not equal), >, <, >=, <=
 
-// For loop
-for (let i = 0; i < 5; i++) {
-  console.log(i) // Prints 0 to 4
-}
+// Ternary Operator
+let status = age > 18 ? "Adult" : "Minor" // One-line if/else
 
-// While loop
-let i = 0
-while (i < 5) {
-  console.log(i)
-  i++
-}
+// Nullish Coalescing
+let input = null
+let output = input ?? "Guest" // "Guest" (if input is null/undefined)
 
 // ===========================================
 // 🔄 FUNCTIONS
 // ===========================================
 
-// Function
 function greet(name) {
-  return "Hello " + name
+  return "Hello " + name // Traditional function
 }
 
-// Arrow function (shorter way)
-const greet2 = (name) => "Hello " + name
+const greet2 = (name) => "Hello " + name // Arrow function
 
 console.log(greet("Jaret")) // "Hello Jaret"
 console.log(greet2("Joe")) // "Hello Joe"
@@ -70,171 +63,156 @@ console.log(greet2("Joe")) // "Hello Joe"
 
 let fruits = ["apple", "banana", "cherry"]
 
-// Access items
-console.log(fruits[0]) // "apple"
-console.log(fruits.length) // 3
-
-// Modify
+fruits[0] // "apple"
+fruits.length // 3
 fruits.push("pear") // Add to end
 fruits.pop() // Remove from end
 fruits.shift() // Remove from start
 fruits.unshift("kiwi") // Add to start
 
-// Loop through array
+fruits.includes("banana") // true
+fruits.indexOf("cherry") // 2
+fruits.join(", ") // "apple, banana, cherry"
+
 fruits.forEach((fruit) => {
-  console.log(fruit)
+  console.log(fruit) // Loop and log each fruit
 })
 
-// Includes
-console.log(fruits.includes("banana")) // true
-console.log(fruits.indexOf("cherry")) // 2
-// indexOf = tells you where a value is inside an array
-
-// Join
-console.log(fruits.join(", ")) // "apple, banana, cherry"
-console.log(fruits.join(", ")) // "apple, banana, cherry"
-console.log(fruits.join(" - ")) // "apple - banana - cherry"
-console.log(fruits.join("")) // "applebananacherry"
-console.log(fruits.join("\n")) // puts each fruit on a new line
-// join = combines data into a single string
-
 // ===========================================
-// 🔎 ADVANCED ARRAY METHODS
+// 📊 ADVANCED ARRAY METHODS
 // ===========================================
 
 let numbers = [1, 2, 3, 4, 5]
 
-// map = transforms each item and returns a new array
-let doubled = numbers.map((n) => n * 2) // [2, 4, 6, 8, 10]
-
-// filter = keeps items that match a condition
-let evens = numbers.filter((n) => n % 2 === 0) // [2, 4]
-
-// find = returns the first match (or undefined)
-let found = numbers.find((n) => n > 3) // 4
-
-// reduce = combines all items into a single value
-let total = numbers.reduce((sum, n) => sum + n, 0) // 15
-
-// some = checks if at least one item matches
-let hasEven = numbers.some((n) => n % 2 === 0) // true
-
-// every = checks if all items match
-let allPositive = numbers.every((n) => n > 0) // true
+numbers.map((n) => n * 2) // [2, 4, 6, 8, 10] (transform)
+numbers.filter((n) => n % 2 === 0) // [2, 4] (keep even numbers)
+numbers.find((n) => n > 3) // 4 (first match)
+numbers.reduce((sum, n) => sum + n, 0) // 15 (sum all values)
+numbers.some((n) => n % 2 === 0) // true (any match)
+numbers.every((n) => n > 0) // true (all match)
 
 // ===========================================
-// 🧱 OBJECTS
+// 🧱 OBJECTS & DOT NOTATION
 // ===========================================
 
 let person = {
   name: "Jaret",
   age: 30,
   greet() {
-    console.log("Hi!")
+    console.log("Hi!") // Method on object
   },
 }
 
-// Access object properties
-console.log(person.name) // "Jaret"
-console.log(person["age"]) // 30
+person.name // "Jaret"
+person["age"] // 30
 person.greet() // "Hi!"
 
-// ===========================================
-// 📍 DOT NOTATIONS
-// ===========================================
-
-obj.name // → gets the value (property)
-obj.greet() // → runs the function (method)
-user.address.city // → accesses a deeper nested property
-console.log() // → calls a method on a built-in object
-Math.round(4.7) // → rounds a number using a built-in method
-person.age = 30 // → sets a new value on a property
-obj["full name"] // → accesses a property with spaces or special characters
-"hi".toUpperCase() // → runs a method on a string value
+// Dot Notation examples
+obj.name // Access property
+obj.greet() // Call method
+user.address.city // Nested property
+Math.round(4.7) // 5
+"hi".toUpperCase() // "HI"
 
 // ===========================================
-// 🎯 DOM (Document Object Model)
+// 🎯 DOM BASICS
 // ===========================================
 
-// Selecting elements
-document.getElementById("title") // By ID (no # needed)
-document.getElementsByClassName("item") // All elements with class "item"
-document.querySelector(".box") // First element with class "box"
-document.querySelectorAll(".item") // All elements with class "item"
+// SELECTORS
+document.getElementById("title") // By ID
+document.getElementsByClassName("item") // By class (HTMLCollection)
+document.querySelector(".box") // First match
+document.querySelectorAll(".item") // All matches (NodeList)
 
-// Changing content
+// CONTENT
 const title = document.querySelector(".title")
 title.textContent = "Hello" // Set plain text
-title.innerHTML = "<strong>Hi</strong>" // Set HTML content
+title.innerHTML = "<strong>Hi</strong>" // Set HTML
 
-// Changing styles
+// STYLING
 title.style.color = "red" // Inline style
 title.classList.add("active") // Add class
 title.classList.remove("active") // Remove class
-title.classList.toggle("active") // Toggle class on/off
+title.classList.toggle("active") // Toggle class
 
-// Events
+// EVENTS
 const button = document.querySelector("button")
 button.addEventListener("click", (e) => {
-  e.preventDefault() // Prevent default form submission or behavior
-  alert("Button clicked!")
+  e.preventDefault() // Prevent default behavior
+  alert("Button clicked!") // Show alert
 })
 
-// ===========================================
-// 🔂 LOOPING OVER DOM ELEMENTS
-// ===========================================
-
+// LOOPING OVER ELEMENTS
 let items = document.querySelectorAll(".item")
-items.forEach((item) => {
-  item.style.color = "blue"
-})
+items.forEach((item) => (item.style.color = "blue")) // Color all blue
+
+// ===========================================
+// 🧾 FORM INPUTS & .value
+// ===========================================
+
+const inputEl = document.getElementById("username")
+inputEl.value // Get current input text
+inputEl.value.trim() // Trim spaces
+
+const select = document.getElementById("priority")
+select.value // Get selected option
+
+// ❌ Not valid on <div>, <p>, etc.
+const heading = document.getElementById("title")
+// heading.value ❌ — use textContent instead
+
+// .textContent vs .innerHTML
+heading.textContent = "Welcome!" // Sets plain text
+heading.innerHTML = "<strong>Hello</strong>" // Sets bold HTML
+
+// ===========================================
+// 🧭 DOM TRAVERSAL & DATA ATTRIBUTES
+// ===========================================
+
+const btn2 = document.querySelector("button")
+btn2.dataset.id // Access data-id → "123"
+
+const item = document.querySelector(".item")
+item.parentElement // Get parent
+item.children // Get children
+
+// ===========================================
+// 🔂 LOOPS
+// ===========================================
+
+for (let i = 0; i < 5; i++) {
+  console.log(i) // 0 to 4
+}
+
+let i = 0
+while (i < 5) {
+  console.log(i) // 0 to 4
+  i++
+}
 
 // ===========================================
 // 🧰 MISC TOOLS
 // ===========================================
 
-// Template Literals
 let user = "Jaret"
-console.log(`Hello, ${user}`) // "Hello, Jaret"
+console.log(`Hello, ${user}`) // Template literal
 
-// Ternary Operator
-let status = age > 18 ? "Adult" : "Minor"
-console.log(status)
+console.log("5" == 5) // true (loose comparison)
+console.log("5" === 5) // false (strict)
 
-// Nullish Coalescing (if null/undefined, use default)
-let input = null
-let output = input ?? "Guest"
-console.log(output) // "Guest"
-
-// ===========================================
-// 🧠 TYPE COERCION & COMPARISON
-// ===========================================
-
-// == checks value only (allows type conversion)
-console.log("5" == 5) // true
-
-// === checks value AND type (strict)
-console.log("5" === 5) // false
-
-// Useful when comparing strings, numbers, booleans, etc.
-
-// ===========================================
-// 🚫 NaN — Not a Number
-// ===========================================
-
+// NaN
 console.log(NaN === NaN) // false (NaN is never equal to itself)
-console.log(Number("hello")) // NaN ("hello" can't be converted to a number)
+console.log(Number("hello")) // NaN (invalid conversion)
 console.log(isNaN("hello")) // true
 
 // ===========================================
 // 🔁 RECURSION
 // ===========================================
 
-// A function that calls itself
 function countDown(n) {
-  if (n <= 0) return
-  console.log(n)
-  countDown(n - 1)
+  if (n <= 0) return // Base case
+  console.log(n) // Log current number
+  countDown(n - 1) // Recursive call
 }
 
 countDown(3) // 3, 2, 1
@@ -243,11 +221,10 @@ countDown(3) // 3, 2, 1
 // 🔒 CLOSURES
 // ===========================================
 
-// A function "remembers" variables from where it was created
 function outer() {
   let count = 0
   return function inner() {
-    count++
+    count++ // Remembers `count`
     console.log(count)
   }
 }
@@ -257,42 +234,28 @@ counter() // 1
 counter() // 2
 
 // ===========================================
-// 📎 REFERENCE VS VALUE
+// 📎 VALUE VS REFERENCE
 // ===========================================
 
-// Primitive types (number, string, boolean) are copied by value
+// PRIMITIVES
 let a = 5
 let b = a
 b++
-console.log(a) // 5 (original not affected)
+console.log(a) // 5 (unchanged)
 
-// Objects are copied by reference
+// OBJECTS
 let obj1 = { value: 10 }
 let obj2 = obj1
 obj2.value++
 console.log(obj1.value) // 11 (both changed)
 
 // ===========================================
-// 🆕 NEW & THIS KEYWORD
+// 🆕 NEW & THIS
 // ===========================================
 
 function Person(name) {
-  this.name = name
+  this.name = name // Set property
 }
 
 const user2 = new Person("Jaret")
 console.log(user2.name) // "Jaret"
-
-// ===========================================
-// 🧭 DOM TRAVERSAL & DATA ATTRIBUTES
-// ===========================================
-
-// DATA ATTRIBUTES
-// <button data-id="123">Click me</button>
-const btn2 = document.querySelector("button")
-console.log(btn2.dataset.id) // "123"
-
-// DOM TRAVERSAL
-const item = document.querySelector(".item")
-console.log(item.parentElement) // Access parent element
-console.log(item.children) // Get all child elements
