@@ -53,6 +53,12 @@ function clearErrors() {
 
 // TODO: Define this function
 function showErrors(errorMessages) {
+  errorMessages.forEach((message) => {
+    const listItem = document.createElement("li")
+    listItem.textContent = message
+    errorsList.appendChild(listItem)
+  })
+  errors.classList.add("show")
   // Add each error to the error-list element
   // Make sure to use an li as the element for each error
   // Also, make sure you add the show class to the errors container
