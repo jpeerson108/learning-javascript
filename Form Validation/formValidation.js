@@ -5,11 +5,12 @@ const username = document.getElementById("username")
 const password = document.getElementById("password")
 const passwordConfirmation = document.getElementById("password-confirmation")
 const terms = document.getElementById("terms")
-const errorsList = document.getElementsByClassName("errors-list")
+const errorsList = document.querySelector(".errors-list")
+const errors = document.querySelector(".errors")
 
 // TODO: Create an event listener for when the form is submitted and do the following inside of it.
 form.addEventListener("submit", (e) => {
-  clearErrors
+  clearErrors()
   const errorMessages = []
 
   if (username.value.length < 6) {
@@ -39,6 +40,10 @@ form.addEventListener("submit", (e) => {
 
 // TODO: Define this function
 function clearErrors() {
+  while (errorsList.firstChild) {
+    errorsList.firstChild.remove()
+  }
+  errors.classList.remove("show")
   // Loop through all the children of the error-list element and remove them
   // IMPORTANT: This cannot be done with a forEach loop or a normal for loop since as you remove children it will modify the list you are looping over which will not work
   // I recommend using a while loop to accomplish this task
