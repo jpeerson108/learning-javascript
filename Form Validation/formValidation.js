@@ -1,7 +1,34 @@
 // TODO: Select all elements needed
 //    Use the HTML to figure out what classes/ids will work best for selecting each element
+const form = document.getElementById("form")
+const username = document.getElementById("username")
+const password = document.getElementById("password")
+const passwordConfirmation = document.getElementById("password-confirmation")
+const terms = document.getElementById("terms")
+const errorsList = document.getElementsByClassName("errors-list")
 
 // TODO: Create an event listener for when the form is submitted and do the following inside of it.
+form.addEventListener("submit", (e) => {
+  clearErrors
+  const errorMessages = []
+
+  if (username.value.length < 6) {
+    errorMessages.push("Ensure the username is at least 6 characters long")
+  }
+  if (password.value.length < 10) {
+    errorMessages.push("Ensure the password is at least 10 characters long")
+  }
+  if (password.value !== passwordConfirmation.value) {
+    errorMessages.push("Ensure the password and confirmation password match")
+  }
+  if (!terms.checked) {
+    errorMessages.push("Ensure the terms checkbox is checked")
+  }
+  if (errorMessages.length > 0) {
+    e.preventDefault()
+    showErrors(errorMessages)
+  }
+})
 //    TODO: Create an array to store all error messages and clear any old error messages
 //    TODO: Define the following validation checks with appropriate error messages
 //      1. Ensure the username is at least 6 characters long
