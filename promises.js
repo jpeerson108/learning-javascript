@@ -69,3 +69,41 @@ function setTimeoutPromise(duration) {
     })
 }
 }
+
+// Basic Promise Example
+{
+const myPromise = new Promise((resolve, reject) => {
+  const success = true
+
+  if (success) {
+    resolve("It worked!")     // this tells the promise: "you’re done successfully"
+  } else {
+    reject("It failed.")      // this tells the promise: "it failed"
+  }
+})
+
+myPromise
+  .then((result) => {
+    console.log(result)  // prints "It worked!"
+  })
+  .catch((error) => {
+    console.error(error) // prints "It failed." if rejected
+  })
+}
+
+// Flip Coin - Promise Example
+{
+  const flipCoin = new Promise((resolve, reject) => {
+  const heads = Math.random() > 0.5
+
+  if (heads) {
+    resolve("Heads!")
+  } else {
+    reject("Tails!")
+  }
+})
+
+flipCoin
+  .then((result) => console.log("You got:", result))
+  .catch((error) => console.log("Try again:", error))
+}
