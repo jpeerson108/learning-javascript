@@ -26,10 +26,46 @@ promise
 
 setTimeoutPromise(250).then(() => {
     console.log('here')
+}) 
+
+function setTimeoutPromise(duration) {
+    return new Promise((resolve, reject) => {
+        setTimeout(resolve, duration)
+    })
+}
+
+// Chaining Timeouts Together
+
+{
+setTimeout(() => {
+    console.log("1")
+    setTimeout(() => {
+        console.log("2")
+        setTimeout(() => {
+            console.log("3")
+        }, 250)
+    }, 250)
+}, 250)
+
+// Above is callback hell
+// Below is conversion to a promise, chained together
+
+setTimeoutPromise(250)
+.then(() => {
+    console.log("1")
+    return setTimeoutPromise(250)
+})
+.then(() => {
+    console.log("2")
+    return setTimeoutPromise(250)
+})
+.then(() => {
+    console.log("3")
 })
 
 function setTimeoutPromise(duration) {
     return new Promise((resolve, reject) => {
         setTimeout(resolve, duration)
     })
+}
 }
