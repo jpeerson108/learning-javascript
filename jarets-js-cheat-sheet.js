@@ -256,3 +256,33 @@ function Person(name) {
 
 const user2 = new Person("Jaret")
 console.log(user2.name) // "Jaret"
+
+// ===========================================
+// 🆕 PROMISES
+// ===========================================
+
+// BASIC PROMISE STRUCTURE
+const myPromise = new Promise((resolve, reject) => {
+  // operatioins go here...
+
+  if (itWorks) {
+    resolve("Success value")
+  } else {
+    reject("Failure reason")
+  }
+})
+
+// FLIP COIN - PROMISE EXAMPLE
+const flipCoin = new Promise((resolve, reject) => {
+  const heads = Math.random() > 0.5
+
+  if (heads) {
+    resolve("Heads!")
+  } else {
+    reject("Tails!")
+  }
+})
+
+flipCoin
+  .then((result) => console.log("You got:", result))
+  .catch((error) => console.log("Try again:", error))

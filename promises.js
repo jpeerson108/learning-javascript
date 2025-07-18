@@ -106,4 +106,43 @@ myPromise
 flipCoin
   .then((result) => console.log("You got:", result))
   .catch((error) => console.log("Try again:", error))
+  // JavaScript allows method chaining over multiple lines for readability.
 }
+
+// Set promise to wait one second then call message
+{
+const practicePromise = new Promise((resolve, reject) => {
+  // wait 1 second, then call resolve with a message
+  setTimeout(() => resolve("Complete"), 1000)
+})
+
+practicePromise.then((message) => {
+  console.log(message)
+})
+}
+
+// Roll Dice - Promise Practice
+
+function rollDice() {
+  return new Promise((resolve, reject) => {
+    // roll the dice
+    const roll = Math.floor(Math.random() * 6) + 1
+        console.log("You rolled: ", roll)
+    // check result with if/else
+    if (roll <= 4) {
+        resolve("You win!")
+    } else {
+        reject("You lose!")
+    }
+  })
+}
+
+rollDice()
+  .then((result) => {
+    // log the winning result
+    console.log(result)
+  })
+  .catch((error) => {
+    // log the losing result
+    console.log(error)
+  })
