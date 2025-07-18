@@ -146,3 +146,29 @@ rollDice()
     // log the losing result
     console.log(error)
   })
+
+  // Create a promise version of addEventListener
+
+  const button = document.querySelector('button')
+
+  function addEventListenerPromise(element, method) {
+    return new Promise((resolve, reject) => {
+    element.addEventListener(method, resolve)
+    })
+  }
+
+  addEventListenerPromise(button, "click")
+  .then(e => {
+    console.log('clicked')
+    console.log(e)
+  })
+
+  // What's happening above
+    // 1. Button is selected using querySelector
+    // 2. addEventListenerPromise takes in...
+        // element (buton)
+        // method ("click")
+    // 3. new Promise resolves when button is clicked
+    // 4. addEventListenerPromise is called with .then
+        // console.log('clicked')
+        // console.log(e) - logs the technical details (event object)
