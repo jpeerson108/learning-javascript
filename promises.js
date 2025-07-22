@@ -172,3 +172,26 @@ rollDice()
     // 4. addEventListenerPromise is called with .then
         // console.log('clicked')
         // console.log(e) - logs the technical details (event object)
+
+
+// Run Multiple Promises - Example
+{
+    Promise.all([
+        Promise.resolve("1"),
+        Promise.resolve("2"),
+        Promise.resolve("3")
+    ]).then(messages => {
+        console.log(messages)
+    })
+    .catch(error => {
+        console.error(error)
+    })
+    .finally(() => {
+        console.log("finally")
+    })
+// Promise.all will only call .then if every promise resolves succesfully
+// Promise.any will take the first promise that succeeds
+// Prosise.race will take the first one to execute, resolve or reject
+// Promise.allSettled will wait till all promises execute, resolve or reject. Returns objects with some info.
+// .finally always gets resolved, no matter if resolve or reject
+}
