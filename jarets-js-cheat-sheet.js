@@ -258,29 +258,61 @@ const user2 = new Person("Jaret")
 console.log(user2.name) // "Jaret"
 
 // ===========================================
-// 🆕 PROMISES
+// ⏳ PROMISES
 // ===========================================
 
-// BASIC PROMISE STRUCTURE
-const myPromise = new Promise((resolve, reject) => {
-  // operatioins go here...
+// ✅ Basic Structure (with real condition)
+const promise = new Promise((resolve, reject) => {
+  const userIsLoggedIn = true // Example condition
 
-  if (itWorks) {
-    resolve("Success value")
+  if (userIsLoggedIn) {
+    resolve("User is logged in!") // Marks promise as fulfilled
   } else {
-    reject("Failure reason")
+    reject("User not logged in.") // Marks promise as rejected
   }
 })
 
-// FLIP COIN - PROMISE EXAMPLE
-const flipCoin = new Promise((resolve, reject) => {
-  const heads = Math.random() > 0.5
+// ✅ Handle result
+promise
+  .then((result) => console.log(result)) // If success
+  .catch((error) => console.error(error)) // If error
+  .finally(() => console.log("Done")) // Always runs
 
-  if (heads) {
-    resolve("Heads!")
-  } else {
-    reject("Tails!")
-  }
+// ✅ Use Case: Delay with setTimeout
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms))
+}
+
+wait(500).then(() => console.log("Waited 0.5s"))
+
+// ===========================================
+// 🔗 COMMON PROMISE METHODS
+// ===========================================
+
+// .then()       → Runs when resolved
+// .catch()      → Runs when rejected
+// .finally()    → Runs after either (good for cleanup)
+
+// Promise.all([])
+// → Waits for all to succeed, or fails if any fail
+// Example:
+Promise.all([Promise.resolve("A"), Promise.resolve("B")]).then((results) =>
+  console.log(results)
+) // ["A", "B"]
+
+// Promise.any([])
+// → Resolves with the first one that succeeds (ignores failures)
+
+// Promise.race([])
+// → Resolves or rejects with the first to finish (win the "race")
+
+// Promise.allSettled([])
+// → Waits for all, regardless of success or failure
+//   Returns an array of result objects (status + value/reason)
+
+// ✅ Fun Example: Flip a Coin
+const flipCoin = new Promise((resolve, reject) => {
+  Math.random() > 0.5 ? resolve("Heads") : reject("Tails")
 })
 
 flipCoin

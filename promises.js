@@ -12,7 +12,7 @@ promise
   .then((message) => {
     console.log(message)
   })
-  .catch(message => {
+  .catch(message) => {
     console.error(message)
   }
 
@@ -194,4 +194,91 @@ rollDice()
 // Prosise.race will take the first one to execute, resolve or reject
 // Promise.allSettled will wait till all promises execute, resolve or reject. Returns objects with some info.
 // .finally always gets resolved, no matter if resolve or reject
+}
+
+// Another Promise Example
+{
+    function setTimeoutPromise(delay) {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, delay)
+        })
+    }
+
+    setTimeoutPromise(250)
+    .then(() => {
+        console.log("1")
+        return setTimeoutPromise(250)
+    })
+    .then(() => {
+        console.log("2")
+    })
+}
+
+
+// Async Await
+
+{
+    function setTimeoutPromise(delay) {
+        return new Promise((resolve, reject) => {
+            setTimeout(resolve, delay)
+        })
+    }
+
+    // setTimeoutPromise(250)
+    // .then(() => {
+    //     console.log("1")
+    //     return setTimeoutPromise(250)
+    // })
+    // .then(() => {
+    //     console.log("2")
+    // })
+
+
+async function doStuff() {
+    try {
+    await setTimeoutPromise(250)
+    console.log("1")
+    await setTimeoutPromise(250)
+    console.log("2")
+    } catch (error) {
+    console.error(error)
+    }
+// Above uses a try/catch block
+}
+
+doStuff()
+}
+
+// Exercise
+
+function getValueWithDelay(value, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve(value)
+        }, delay)
+    })
+}
+
+function getValueWithDelayError(value, delay) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            reject("Error")
+        }, delay)
+    })
+}
+
+// Write an async function
+// Call getValueWithDelay twice and print out the returned value
+// Then call getValueWithDelayError and make sure the error is properly caught
+
+async function executeDelays() {
+    try {
+        const first = await getValueWithDelay("First Value", 250)
+        console.log(first)
+        const second = await getValueWithDelay("Second Value", 250)
+        console.log(second)
+        await getValueWithDelayError("This will fail", 250)
+    } catch (error) {
+           console.log("Caught an error:", error)
+    }
 }
