@@ -284,6 +284,7 @@ async function executeDelays() {
 executeDelays()
 
 // Numbers print sequentially after 250ms delay
+// Async functions run one after the other since they are chained together
 
 async function printNumbers() {
   for (let i = 0; i < 10; i++) {
@@ -292,7 +293,7 @@ async function printNumbers() {
   }
 }
 
-// Numbers print at once after 250ms delay
+// Numbers print all at once after 250ms delay
 
 for (let i = 0; i < 10; i++) {
   getValueWithDelay(i).then((value) => {
