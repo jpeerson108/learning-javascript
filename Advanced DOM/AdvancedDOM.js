@@ -1,7 +1,10 @@
 // Fetch - Query info that is on the web
 // API - Website formatted in a way that will return data
 
-fetch("https://jsonplaceholder.typicode.com/users")
+const URL = "https://jsonplaceholder.typicode.com/users"
+
+// Promise Version
+fetch(URL)
   .then((response) => {
     return response.json()
   })
@@ -21,3 +24,53 @@ fetch("https://jsonplaceholder.typicode.com/users")
 //// .map((user) => user.name) loops through the users and creates a new array of just the name values
 //// user is just the name for each user in the loop
 // console.log(...) prints the new array of names
+
+// Convert Promise Version to Async
+
+// Fetch Data from Server - Example
+async function doStuff() {
+  try {
+    const response = await fetch(URL)
+    console.log(response.ok)
+    const data = await response.json()
+    console.log(data.map((user) => user.name))
+  } catch (error) {
+    console.error("Fetch failed: ", error)
+  }
+}
+
+// Send Data to Server - Example
+
+const URLPost = "https://jsonplaceholder.typicode.com/posts"
+
+async function doStuff2() {
+  const response = await fetch(URLPost, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      title: "New Post",
+    }),
+  })
+  const post = await response.json()
+  console.log(post)
+}
+
+doStuff()
+doStuff2()
+
+// Practice: Get all of the comments with the ID=1
+// Fetch all of the comments, print them out
+
+const URLgetID1 = "https://jsonplaceholder.typicode.com/comments?postId=1"
+
+async function getID1() {
+  const response = await fetch(URLgetID1)
+  const comments = await response.json()
+  comments.forEach((comment) => {
+    console.log(comment.body)
+  })
+}
+
+getID1()
