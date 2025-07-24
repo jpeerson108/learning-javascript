@@ -74,3 +74,20 @@ async function getID1() {
 }
 
 getID1()
+
+// Event Loops
+function test() {
+  console.log("hi 1") // synchronous
+  console.log("hi 2") // synchronous
+  new Promise((resolve, reject) => resolve("hi promise")).then((message) =>
+    console.log(message)
+  )
+  setTimeout(() => console.log("hi 3"), 10) // asynchronous (delayed)
+  setTimeout(() => console.log("hi 4"), 0) // asynchronous (delayed)
+  console.log("hi 5") // synchronous
+}
+
+test()
+console.log("hi 6") // synchronous
+
+// Async functions get queued to run at the end of the full event loop, unlike promises which run as soon as the function they are in comopletes
