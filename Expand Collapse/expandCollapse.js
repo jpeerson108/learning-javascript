@@ -13,6 +13,8 @@
 //// Card Body: .card-body
 //// Card Body Show: .card-body show
 
+// First Attempt - Function + Loop
+// ----------------------------------------------------
 const button = document.getElementsByClassName("expand-button")
 const buttonArray = Array.from(button)
 
@@ -31,5 +33,20 @@ function toggleBody() {
     })
   })
 }
+// toggleBody()
 
-toggleBody()
+// Revised Version - Allows for future dynamic additions
+// ----------------------------------------------------
+document.addEventListener("click", (e) => {
+  if (e.target.matches(".expand-button")) {
+    e.preventDefault()
+    const body = e.target.parentElement.nextElementSibling
+    if (e.target.textContent === "Expand") {
+      body.classList.add("show")
+      e.target.textContent = "Collapse"
+    } else {
+      body.classList.remove("show")
+      e.target.textContent = "Expand"
+    }
+  }
+})
