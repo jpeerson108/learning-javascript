@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "uuid": "^11.1.0"
+  },
+  "name": "learning-javascript",
+  "version": "1.0.0",
+  "main": "jarets-js-cheat-sheet.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpeerson108/learning-javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpeerson108/learning-javascript/issues"
+  },
+  "homepage": "https://github.com/jpeerson108/learning-javascript#readme",
+  "description": ""
+}
