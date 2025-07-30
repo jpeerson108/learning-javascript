@@ -15,4 +15,8 @@ function setDate(date) {
   datePickerButton.dataset.selectedDate = getUnixTime(date)
 }
 
+function setupDatePicker(selectedDate) {
+  console.log(selectedDate)
+}
+
 setDate(new Date())
