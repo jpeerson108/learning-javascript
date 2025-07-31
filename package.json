@@ -2,8 +2,8 @@
   "name": "learning-javascript",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel datePicker.html",
-    "build": "parcel build datePicker.html"
+    "start": "parcel ./date-picker/datePicker.html",
+    "build": "parcel build ./date-picker/datePicker.html"
 
   },
   "repository": {
